@@ -17,6 +17,7 @@
       color: #333;
       background-color: #ffffff;
       overflow-x: hidden;
+      width: 100%;
     }
 
     h1, h2, h3 {
@@ -33,9 +34,10 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      width: 100%;
     }
 
-    .nav-container {
+    .nav-links-container {
       display: flex;
       align-items: center;
     }
@@ -63,7 +65,6 @@
       text-decoration: underline;
     }
 
-    /* Social Icon Specific Alignment */
     .social-icon svg {
       width: 20px;
       height: 20px;
@@ -92,16 +93,18 @@
 
     /* SECTIONS */
     section {
-      padding: 80px 40px;
+      padding: 80px 20px;
       max-width: 900px;
       margin: 0 auto;
+      width: 100%;
     }
 
     #home {
       text-align: center;
-      padding: 100px 40px;
+      padding: 100px 20px;
       background: #fff8f4;
       max-width: 100%;
+      width: 100%;
     }
 
     .btn-shop {
@@ -135,6 +138,7 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
       margin-top: 20px;
+      width: 100%;
     }
 
     .product-card {
@@ -221,8 +225,9 @@
     .cart-sidebar {
       position: fixed;
       top: 0;
-      right: -350px;
-      width: 350px;
+      right: -100%;
+      width: 100%;
+      max-width: 350px;
       height: 100%;
       background: white;
       box-shadow: -5px 0 15px rgba(0,0,0,0.1);
@@ -298,14 +303,15 @@
       display: block;
     }
 
-    /* CHECKOUT FORM & SHIPPING SUMMARY */
+    /* CHECKOUT FORM */
     .form-container {
       background: #fff8f4;
-      padding: 40px;
+      padding: 40px 20px;
       border-radius: 16px;
       max-width: 600px;
       margin: 30px auto 0;
       box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+      width: 100%;
     }
 
     .form-group {
@@ -386,6 +392,7 @@
       max-width: 600px;
       margin: 40px auto 0;
       text-align: left;
+      width: 100%;
     }
 
     .faq-item {
@@ -409,88 +416,79 @@
       line-height: 1.5;
     }
 
-    /* FOOTER STYLES */
     footer {
       background: #fff8f4;
       text-align: center;
       padding: 40px 20px;
       margin-top: 60px;
       border-top: 1px solid #f0f0f0;
-    }
-    /* --- MOBILE RESPONSIVE FIXES --- */
-@media (max-width: 768px) {
-    /* Prevent horizontal page layout breaking */
-    html, body {
-        width: 100%;
-        overflow-x: hidden;
-        margin: 0;
-        padding: 0;
+      width: 100%;
     }
 
-    /* Force the main layout containers to take full screen width instead of shrinking */
-    main, .container, header, section, footer {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-
-    /* Re-align navigation bar items smoothly */
-    header {
-        display: flex;
+    /* --- MOBILE RESPONSIVE LAYOUT ENGINE --- */
+    @media (max-width: 768px) {
+      nav {
+        padding: 12px 16px;
         flex-wrap: wrap;
+        gap: 12px;
         justify-content: space-between;
-        align-items: center;
-        padding: 10px !important;
-    }
+      }
 
-    header nav {
-        display: flex;
-        gap: 10px;
+      nav img {
+        height: 50px;
+        width: 50px;
+      }
+
+      .nav-links-container {
+        width: auto;
+        justify-content: flex-end;
+        gap: 12px;
+      }
+
+      nav a {
+        margin-left: 0;
         font-size: 14px;
-    }
+      }
 
-    /* Keep the cart badge securely tucked within view */
-    .cart-btn, .cart-floating, [class*="Cart"] {
-        position: fixed !important;
-        right: 15px !important;
-        top: 15px !important;
-        z-index: 1000;
-    }
+      .cart-nav-btn {
+        margin-left: 0;
+        padding: 6px 12px;
+        font-size: 13px;
+      }
 
-    /* Stack checkout form elements and fields vertically */
-    .form-row, .grid-2 {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+      #home h1 {
+        font-size: 32px !important;
+      }
 
-    input, select, textarea {
-        width: 100% !important;
-        box-sizing: border-box;
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .form-container {
+        padding: 20px 15px;
+      }
     }
-}
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR WITH SOCIAL SVG ICONS -->
+  <!-- MOBILE OPTIMIZED HEADER -->
   <nav>
-    <img src="logo.jpg.jpg" alt="Hooked Corner">
-    <div class="nav-container">
+    <img src="logo.jpg" alt="Hooked Corner">
+    <div class="nav-links-container">
       <a href="#home">Home</a>
       <a href="#shop">Shop</a>
       <a href="#contact">Checkout</a>
       
-      <!-- Instagram SVG Icon -->
+      <!-- Instagram Link -->
       <a href="https://www.instagram.com/cogito_z/" target="_blank" class="social-icon" aria-label="Instagram">
         <svg viewBox="0 0 24 24">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
         </svg>
       </a>
 
-      <!-- TikTok SVG Icon -->
+      <!-- TikTok Link -->
       <a href="https://www.tiktok.com/@cogito_z" target="_blank" class="social-icon" aria-label="TikTok">
         <svg viewBox="0 0 24 24">
           <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.05 1.62 4.2 1.22 1.4 2.97 2.21 4.79 2.4v3.3c-1.49-.05-2.96-.54-4.21-1.37-.11-.08-.22-.16-.33-.25-.02.14-.04.27-.04.41v6.72c.01 3.54-2.13 6.84-5.46 8.04-3.32 1.2-7.12.3-9.52-2.27-2.4-2.56-2.91-6.52-1.27-9.61 1.64-3.1 5.17-4.89 8.64-4.45V10.7c-1.88-.5-3.95.14-5.16 1.64-1.21 1.5-1.34 3.69-.32 5.33 1.02 1.64 2.99 2.47 4.88 2.05 1.89-.42 3.26-2.1 3.26-4.04V.02z"/>
@@ -528,7 +526,7 @@
         <button class="btn-add-cart" onclick="addToCart('Classic Daisy Tote', 3500)">Add to Cart</button>
       </div>
 
-      <!-- Item 2: Custom Fruit Keychains -->
+      <!-- Item 2: Custom Fruit Keychains Slider -->
       <div class="product-card">
         <div class="product-image-container">
           <button class="slide-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
@@ -589,9 +587,7 @@
       <h3>Your Basket</h3>
       <button class="close-cart" onclick="toggleCart()">&times;</button>
     </div>
-    <div id="cartItems" class="cart-items-container">
-      <!-- Dynamic Items load here -->
-    </div>
+    <div id="cartItems" class="cart-items-container"></div>
     <div class="cart-total-box">
       <span>Items Total:</span>
       <span id="cartTotalText">0 DA</span>
@@ -606,7 +602,6 @@
     <div class="form-container">
       <form action="https://formspree.io/f/maqgejny" method="POST" id="orderForm">
         
-        <!-- FORMSPREE HIDDEN SYSTEM FIELDS -->
         <input type="hidden" id="hiddenCartData" name="Full_Order_Items" value="">
         <input type="hidden" id="hiddenShippingCost" name="Shipping_Fee" value="0 DA">
         <input type="hidden" id="hiddenTotalPrice" name="Grand_Total_With_Shipping" value="">
@@ -626,7 +621,6 @@
           <input type="tel" id="phone" name="phone" required placeholder="05XXXXXXXX or 06XXXXXXXX">
         </div>
 
-        <!-- SHIPPING ROUTING SELECTIONS -->
         <div class="form-row">
           <div class="form-group">
             <label for="wilaya">Delivery Wilaya *</label>
@@ -660,13 +654,11 @@
           <input type="text" id="commune" name="shipping_commune" required placeholder="E.g. Bouzareah">
         </div>
 
-        <!-- REPOSITIONED AND CUSTOM OPTIMIZED DETAILS FIELD -->
         <div class="form-group">
           <label for="notes">Exact Home Address & Custom Design Requests</label>
           <textarea id="notes" name="delivery_address_and_custom_requests" rows="4" placeholder="Type your specific street details or custom color combinations here (e.g., custom color choices for keychains or bags)..." required></textarea>
         </div>
 
-        <!-- DYNAMIC LIVE PRICE MATRIX FEEDBACK -->
         <div class="price-calculation-block">
           <div class="price-calc-row">
             <span>Products Subtotal:</span>
@@ -685,7 +677,7 @@
         <button type="submit" class="btn-submit">Submit Order via Email</button>
       </form>
 
-      <!-- UPDATED FAQ DISPLAY SECTION -->
+      <!-- FAQ DISPLAY SECTION -->
       <div class="faq-container">
         <h3 style="margin-top: 30px; margin-bottom: 15px; font-family: 'Playfair Display', serif; color: #333;">Frequently Asked Questions</h3>
         
@@ -713,9 +705,7 @@
     <p style="font-size: 14px; color: #888;">&copy; 2026 Hooked Corner. All rights reserved.</p>
   </footer>
 
-  <!-- ENGINE CORE LOGIC AND DATA MATRICES -->
   <script>
-    // 1. PRODUCTS SLIDER
     const slides = [
       { name: "Fruit Keychain (Watermelon)", identity: "Fruit Keychain - Watermelon", price: 600, img: "https://picsum.photos/300/300?random=10" },
       { name: "Fruit Keychain (Orange)", identity: "Fruit Keychain - Orange", price: 600, img: "https://picsum.photos/300/300?random=11" },
@@ -736,7 +726,6 @@
       addToCart(activeItem.identity, activeItem.price);
     }
 
-    // 2. COYOTE DZ FLAT RATE SHIPPING DATA MATRICES
     const homeDeliveryRates = {
       "01": 1100, "02": 800, "03": 900, "04": 800, "05": 800, "06": 800, "07": 900, "08": 1100, "09": 600, "10": 800,
       "11": 1100, "12": 800, "13": 800, "14": 800, "15": 800, "16": 400, "17": 900, "18": 800, "19": 800, "20": 800,
@@ -750,7 +739,6 @@
       "16": 200, "19": 450, "31": 450, "06": 450, "23": 450
     };
 
-    // 3. BASKET ENGINE LOGIC
     let basket = [];
     let itemsTotalDA = 0;
 
@@ -816,7 +804,6 @@
       calculateShipping();
     }
 
-    // 4. SHIPPING LOGISTICS ROUTING CALCULATOR
     function handleWilayaChange() {
       const wilayaSelect = document.getElementById("wilaya");
       const methodSelect = document.getElementById("shippingMethod");
@@ -868,6 +855,5 @@
       }
     });
   </script>
-
 </body>
 </html>
